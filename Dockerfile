@@ -8,8 +8,8 @@ RUN apk update
 # Install Supervisor, cron, libnl-utils, net-tools, iptables
 RUN apk add --no-cache --virtual .build-deps supervisor dcron libnl-dev net-tools iptables rsyslog
 
-ADD rsyslog.conf /etc/rsyslog.conf
-RUN mkdir -p /etc/rsyslog.d
+# ADD rsyslog.conf /etc/rsyslog.conf
+# RUN mkdir -p /etc/rsyslog.d
 
 # Setup Supervisor
 RUN mkdir -p /var/log/supervisor
@@ -37,4 +37,4 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Start
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
