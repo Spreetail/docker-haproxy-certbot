@@ -4,8 +4,8 @@ FROM debian:jessie
 RUN apt-get update && apt-get install -y libssl1.0.0 libpcre3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # Setup HAProxy
-ENV HAPROXY_MAJOR 1.6
-ENV HAPROXY_VERSION 1.6.9
+ENV HAPROXY_MAJOR 1.8
+ENV HAPROXY_VERSION 1.8.7
 RUN buildDeps='curl gcc libc6-dev libpcre3-dev libssl-dev make' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
